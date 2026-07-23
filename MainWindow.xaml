@@ -1,0 +1,138 @@
+<Window x:Class="project_nyz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Project NYZ - Fortnite Launcher" Height="600" Width="900"
+        Background="#0a0e27"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="False"
+        Icon="pack://application:,,,/Resources/icon.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Background Image/Gradient -->
+        <Grid Grid.Column="0" Background="#1a1f3a">
+            <Image x:Name="BackgroundImage" Stretch="UniformToFill" Opacity="0.3"/>
+            <Label Content="Fortnite Chapter 2 Season 4" 
+                   FontSize="48" 
+                   Foreground="White" 
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Effect="{StaticResource ShadowEffect}"/>
+        </Grid>
+
+        <!-- Login Panel -->
+        <Grid Grid.Column="1" Background="#0f1419" Margin="0">
+            <StackPanel VerticalAlignment="Center" Margin="30">
+                <!-- Title -->
+                <TextBlock Text="PROJECT NYZ" 
+                           FontSize="32" 
+                           Foreground="#00d4ff" 
+                           FontWeight="Bold" 
+                           TextAlignment="Center"
+                           Margin="0,0,0,40"/>
+
+                <!-- Username Section -->
+                <TextBlock Text="اختر المستخدم" 
+                           FontSize="14" 
+                           Foreground="#a0a0a0"
+                           Margin="0,0,0,10"/>
+                <ComboBox x:Name="UsernameComboBox" 
+                          Height="45"
+                          Foreground="White"
+                          Background="#1a1f3a"
+                          FontSize="14"
+                          Padding="15,10"
+                          Margin="0,0,0,25">
+                    <ComboBoxItem>nyz</ComboBoxItem>
+                    <ComboBoxItem>اضف مستخدم جديد</ComboBoxItem>
+                </ComboBox>
+
+                <!-- New Username (if adding) -->
+                <TextBlock Text="اسم المستخدم الجديد" 
+                           FontSize="14" 
+                           Foreground="#a0a0a0"
+                           Margin="0,0,0,10"
+                           x:Name="NewUserLabel"
+                           Visibility="Collapsed"/>
+                <TextBox x:Name="NewUsernameTextBox" 
+                         Height="45"
+                         Foreground="White"
+                         Background="#1a1f3a"
+                         FontSize="14"
+                         Padding="15,10"
+                         Margin="0,0,0,25"
+                         Visibility="Collapsed"/>
+
+                <!-- Password Section -->
+                <TextBlock Text="كلمة المرور" 
+                           FontSize="14" 
+                           Foreground="#a0a0a0"
+                           Margin="0,0,0,10"/>
+                <PasswordBox x:Name="PasswordBox" 
+                             Height="45"
+                             Foreground="White"
+                             Background="#1a1f3a"
+                             FontSize="14"
+                             Padding="15,10"
+                             Margin="0,0,0,25"/>
+
+                <!-- Game Path Selection -->
+                <TextBlock Text="مسار ملف اللعبة" 
+                           FontSize="14" 
+                           Foreground="#a0a0a0"
+                           Margin="0,0,0,10"/>
+                <Grid Margin="0,0,0,25">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="GamePathTextBox" 
+                             Height="45"
+                             Foreground="White"
+                             Background="#1a1f3a"
+                             FontSize="12"
+                             Padding="15,10"
+                             IsReadOnly="True"
+                             Grid.Column="0"/>
+                    <Button Content="اختر" 
+                            Height="45"
+                            Background="#00d4ff"
+                            Foreground="Black"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Grid.Column="1"
+                            Margin="10,0,0,0"
+                            Click="SelectGameFolder_Click"/>
+                </Grid>
+
+                <!-- Login Button -->
+                <Button x:Name="LoginButton" 
+                        Content="دخول" 
+                        Height="50"
+                        Background="#00d4ff"
+                        Foreground="Black"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Click="LoginButton_Click"
+                        Margin="0,0,0,15"
+                        Cursor="Hand"/>
+
+                <!-- Status Message -->
+                <TextBlock x:Name="StatusMessage" 
+                           Foreground="#ff6b6b"
+                           FontSize="12"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           Margin="0,10,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+    <Window.Resources>
+        <DropShadowEffect x:Key="ShadowEffect" ShadowDepth="3" BlurRadius="10" Opacity="0.5"/>
+    </Window.Resources>
+</Window>
