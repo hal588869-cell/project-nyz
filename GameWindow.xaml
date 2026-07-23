@@ -1,0 +1,116 @@
+<Window x:Class="project_nyz.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Project NYZ - Launcher" Height="500" Width="700"
+        Background="#0a0e27"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30">
+            <!-- Header -->
+            <TextBlock Text="أهلاً بك في" 
+                       FontSize="24" 
+                       Foreground="#a0a0a0"
+                       TextAlignment="Center"
+                       Margin="0,0,0,10"/>
+            
+            <TextBlock x:Name="UsernameDisplay" 
+                       FontSize="36" 
+                       Foreground="#00d4ff"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       Margin="0,0,0,30"/>
+
+            <!-- Game Status -->
+            <Border Background="#1a1f3a" CornerRadius="10" Padding="20" Margin="0,0,0,30">
+                <StackPanel>
+                    <TextBlock Text="Fortnite Chapter 2 - Season 4" 
+                               FontSize="18" 
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"/>
+                    
+                    <TextBlock Text="الإصدار: 14.60" 
+                               FontSize="14" 
+                               Foreground="#a0a0a0"
+                               Margin="0,0,0,5"/>
+                    
+                    <TextBlock Text="الحالة: جاهز للتشغيل" 
+                               FontSize="14" 
+                               Foreground="#4ade80"
+                               Margin="0,0,0,10"/>
+
+                    <ProgressBar x:Name="LoadingProgress" 
+                                 Height="4" 
+                                 Background="#1a1f3a"
+                                 Foreground="#00d4ff"
+                                 Margin="0,0,0,10"
+                                 Visibility="Collapsed"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Server Info -->
+            <Border Background="#1a1f3a" CornerRadius="10" Padding="20" Margin="0,0,0,30">
+                <StackPanel>
+                    <TextBlock Text="معلومات السيرفر" 
+                               FontSize="16" 
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"/>
+                    
+                    <TextBlock Text="Radmin VPN" 
+                               FontSize="12" 
+                               Foreground="#a0a0a0"
+                               Margin="0,0,0,5"/>
+                    
+                    <TextBlock x:Name="ServerStatusText" 
+                               Text="جاري الاتصال..." 
+                               FontSize="12" 
+                               Foreground="#fbbf24"
+                               Margin="0,0,0,10"/>
+
+                    <TextBlock x:Name="PlayersCount" 
+                               Text="عدد اللاعبين: --" 
+                               FontSize="12" 
+                               Foreground="#a0a0a0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Buttons -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="تشغيل اللعبة" 
+                        Height="50"
+                        Background="#4ade80"
+                        Foreground="Black"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Click="PlayGame_Click"
+                        Cursor="Hand"
+                        Grid.Column="0"/>
+
+                <Button Content="الخروج" 
+                        Height="50"
+                        Background="#ef4444"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Click="Logout_Click"
+                        Cursor="Hand"
+                        Grid.Column="2"/>
+            </Grid>
+
+            <!-- Status -->
+            <TextBlock x:Name="StatusMessage" 
+                       Foreground="#a0a0a0"
+                       FontSize="12"
+                       TextAlignment="Center"
+                       Margin="0,20,0,0"
+                       TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Window>
